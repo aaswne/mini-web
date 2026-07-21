@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel and Tourism</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+
+  <style>
+    /* Google Font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+
+    header {
+      width: 100%;
+      background: #0b5d1e;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .logo i {
+      color: #ffd700;
+      margin-right: 8px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* Hero */
+
+    .hero {
+      height: 90vh;
+      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600")
+        center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      color: white;
+      width: 80%;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ff9800;
+      color: white;
+      text-decoration: none;
+      padding: 14px 35px;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff6f00;
+      transform: translateY(-3px);
+    }
+
+    /* Sections */
+
+    section {
+      padding: 70px 8%;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+      color: #0b5d1e;
+    }
+
+    .about {
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 900px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    /* Cards */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      padding: 15px;
+      color: #0b5d1e;
+    }
+
+    .card p {
+      padding: 0 15px 20px;
+    }
+
+    /* Packages */
+
+    .package-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .package {
+      background: white;
+      text-align: center;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      transition: 0.3s;
+    }
+
+    .package:hover {
+      transform: scale(1.05);
+    }
+
+    .package h1 {
+      color: #ff5722;
+      margin: 15px 0;
+    }
+
+    .package button {
+      margin-top: 20px;
+      background: #0b5d1e;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .package button:hover {
+      background: #128534;
+    }
+
+    /* Contact */
+
+    form {
+      max-width: 650px;
+      margin: auto;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    form textarea {
+      resize: none;
+      height: 150px;
+    }
+
+    form button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      background: #0b5d1e;
+      color: white;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background: #128534;
+    }
+
+    /* Footer */
+
+    footer {
+      background: #0b5d1e;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+    }
+
+    .social {
+      margin-top: 20px;
+    }
+
+    .social i {
+      font-size: 28px;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .social i:hover {
+      color: #ffd700;
+      transform: scale(1.2);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 50px 20px;
+      }
+
+      section h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <i class="fa-solid fa-plane"></i>
+        TravelGo
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#kerala">Kerala</a></li>
+          <li><a href="#mangalore">Mangalore</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Explore Kerala & Mangalore</h1>
+
+        <p>
+          Discover beautiful beaches, hills, waterfalls, wildlife, delicious
+          food and unforgettable travel experiences.
+        </p>
+
+        <a href="#packages" class="btn">View Packages</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+      <h2>Why Visit?</h2>
+
+      <p>
+        Kerala is known as God's Own Country because of its backwaters, tea
+        plantations and beaches. Mangalore is famous for its beaches, temples,
+        seafood and rich culture.
+      </p>
+    </section>
+
+    <!-- Kerala -->
+    <section id="kerala">
+      <h2>Top Places in Kerala</h2>
+
+      <div class="cards">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600"
+            alt="Munnar"
+          />
+
+          <h3>Munnar</h3>
+
+          <p>Famous for tea plantations, mountains and cool climate.</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=600"
+            alt="Alleppey"
+          />
+
+          <h3>Alleppey</h3>
+
+          <p>Enjoy peaceful houseboat rides through Kerala backwaters.</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600"
+            alt="Wayanad"
+          />
+
+          <h3>Wayanad</h3>
+
+          <p>Waterfalls, wildlife, caves and trekking.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mangalore -->
+    <section id="mangalore">
+      <h2>Top Places in Mangalore</h2>
+
+      <div class="cards">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600"
+            alt="Panambur Beach"
+          />
+
+          <h3>Panambur Beach</h3>
+
+          <p>Clean beach with sunset and water sports.</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600"
+            alt="Tannirbhavi Beach"
+          />
+
+          <h3>Tannirbhavi Beach</h3>
+
+          <p>Peaceful beach surrounded by nature.</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600"
+            alt="St Aloysius Chapel"
+          />
+
+          <h3>St. Aloysius Chapel</h3>
+
+          <p>Historic church with beautiful paintings.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages">
+      <h2>Popular Packages</h2>
+
+      <div class="package-container">
+        <div class="package">
+          <h3>Kerala Tour</h3>
+
+          <h1>₹7,999</h1>
+
+          <p>3 Days / 2 Nights</p>
+
+          <button>Book Now</button>
+        </div>
+
+        <div class="package">
+          <h3>Mangalore Tour</h3>
+
+          <h1>₹5,999</h1>
+
+          <p>2 Days / 1 Night</p>
+
+          <button>Book Now</button>
+        </div>
+
+        <div class="package">
+          <h3>Combo Tour</h3>
+
+          <h1>₹11,999</h1>
+
+          <p>5 Days / 4 Nights</p>
+
+          <button>Book Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required />
+
+        <input type="email" id="email" placeholder="Your Email" required />
+
+        <textarea id="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <h3>Explore Kerala & Mangalore</h3>
+
+      <p>Designed using HTML, CSS & JavaScript</p>
+
+      <div class="social">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+  <script>
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let message = document.getElementById("message").value;
+
+      if (name == "" || email == "" || message == "") {
+        alert("Please fill all the fields.");
+      } else {
+        alert("Thank You " + name + "! Your message has been sent.");
+
+        form.reset();
+      }
+    });
+
+    // Book Now Button
+
+    const bookButtons = document.querySelectorAll(".package button");
+
+    for (let i = 0; i < bookButtons.length; i++) {
+      bookButtons[i].addEventListener("click", function () {
+        alert("Thank you for choosing this package.");
+      });
+    }
+  </script>
+</html>
