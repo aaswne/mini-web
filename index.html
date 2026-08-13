@@ -1,871 +1,923 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TravelGo - Kerala & Mangalore</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelGo - Kerala & Mangalore</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-      scroll-behavior: smooth;
-    }
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
 
-    body {
-      background: #F5F7FA;
-      color: #333;
-      line-height: 1.6;
-    }
+      body {
+        background: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+      }
 
-    header {
-      width: 100%;
-      background: linear-gradient(90deg, #102A43, #1F6F8B);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 8%;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .logo i {
-      color: #D4AF37;
-      margin-right: 8px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    nav a:hover {
-      color: #D4AF37;
-    }
-
-    .menu-btn {
-      display: none;
-      font-size: 25px;
-      cursor: pointer;
-    }
-
-    .hero {
-      height: 90vh;
-      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600") center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, .55);
-    }
-
-    .hero-content {
-      position: relative;
-      color: white;
-      width: 85%;
-    }
-
-    .hero h1 {
-      font-size: 55px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #D9775B, #B95C4A);
-      color: white;
-      text-decoration: none;
-      padding: 14px 35px;
-      border-radius: 30px;
-      transition: .3s;
-    }
-
-    .btn:hover {
-      background: #B95C4A;
-      transform: translateY(-3px);
-    }
-
-    section {
-      padding: 70px 8%;
-    }
-
-    section h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 36px;
-      color: #102A43;
-      position: relative;
-    }
-
-    section h2::after {
-      content: "";
-      display: block;
-      width: 55px;
-      height: 4px;
-      background: #D9775B;
-      border-radius: 10px;
-      margin: 10px auto 0;
-    }
-
-    .about {
-      text-align: center;
-    }
-
-    .about p {
-      max-width: 900px;
-      margin: auto;
-      font-size: 18px;
-    }
-
-    .cards,
-    .package-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-    }
-
-    .card,
-    .package {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(18,59,93,.12);
-      transition: .3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 18px;
-    }
-
-    .card h3 {
-      color: #102A43;
-      margin-bottom: 8px;
-    }
-
-    .package {
-      text-align: center;
-      padding: 30px;
-    }
-
-    .package:hover {
-      transform: scale(1.03);
-    }
-
-    .package h1 {
-      color: #B95C4A;
-      margin: 15px 0;
-    }
-
-    .package button {
-      margin-top: 20px;
-      background: #102A43;
-      color: white;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 30px;
-      cursor: pointer;
-    }
-
-    .package button:hover {
-      background: #1F6F8B;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .feature {
-      background: white;
-      padding: 25px;
-      text-align: center;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(18,59,93,.08);
-    }
-
-    .feature i {
-      font-size: 35px;
-      color: #D9775B;
-      margin-bottom: 12px;
-    }
-
-    .search-box {
-      max-width: 700px;
-      margin: 0 auto 35px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .search-box input {
-      flex: 1;
-      padding: 14px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    .search-box button {
-      padding: 14px 22px;
-      border: none;
-      background: #102A43;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    form {
-      max-width: 650px;
-      margin: auto;
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 18px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    form textarea {
-      resize: none;
-      height: 150px;
-    }
-
-    form button {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      background: #102A43;
-      color: white;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .message {
-      text-align: center;
-      margin-top: 15px;
-      color: #102A43;
-      font-weight: 500;
-    }
-
-    #topBtn {
-      display: none;
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      border: none;
-      background: #D9775B;
-      color: white;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 18px;
-    }
-
-    footer {
-      background: #102A43;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .social {
-      margin-top: 20px;
-    }
-
-    .social i {
-      font-size: 25px;
-      margin: 0 10px;
-      cursor: pointer;
-    }
-
-    .social i:hover {
-      color: #D4AF37;
-    }
-
-
-    .place-card {
-      cursor: pointer;
-    }
-
-    .place-card .view-more {
-      color: #D4AF37;
-      font-weight: 600;
-      margin-top: 10px;
-      display: inline-block;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(10, 24, 38, .88);
-      z-index: 2000;
-      padding: 30px 20px;
-      overflow-y: auto;
-    }
-
-    .modal.active {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-box {
-      width: min(950px, 100%);
-      background: #fff;
-      border-radius: 18px;
-      padding: 25px;
-      position: relative;
-      box-shadow: 0 20px 60px rgba(0,0,0,.3);
-    }
-
-    .close-modal {
-      position: absolute;
-      right: 18px;
-      top: 12px;
-      border: none;
-      background: #102A43;
-      color: white;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 20px;
-      z-index: 2;
-    }
-
-    .modal-box h2 {
-      color: #102A43;
-      margin-bottom: 5px;
-    }
-
-    .modal-box > p {
-      margin-bottom: 20px;
-      color: #666;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      border-radius: 12px;
-      transition: .3s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
-    .no-result {
-      display: none;
-      text-align: center;
-      padding: 25px;
-      color: #777;
-      grid-column: 1 / -1;
-    }
-
-    @media (max-width: 768px) {
       header {
-        padding: 15px 5%;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      nav {
-        display: none;
         width: 100%;
+        background: linear-gradient(90deg, #102a43, #1f6f8b);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 8%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
       }
 
-      nav.active {
-        display: block;
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .logo i {
+        color: #d4af37;
+        margin-right: 8px;
       }
 
       nav ul {
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 15px;
+        list-style: none;
+        display: flex;
+        gap: 25px;
       }
 
-      header {
-        flex-wrap: wrap;
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      nav a:hover {
+        color: #d4af37;
+      }
+
+      .menu-btn {
+        display: none;
+        font-size: 25px;
+        cursor: pointer;
+      }
+
+      .hero {
+        height: 90vh;
+        background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600")
+          center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+      }
+
+      .hero-content {
+        position: relative;
+        color: white;
+        width: 85%;
       }
 
       .hero h1 {
-        font-size: 36px;
+        font-size: 55px;
+        margin-bottom: 15px;
       }
 
       .hero p {
-        font-size: 17px;
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #d9775b, #b95c4a);
+        color: white;
+        text-decoration: none;
+        padding: 14px 35px;
+        border-radius: 30px;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background: #b95c4a;
+        transform: translateY(-3px);
       }
 
       section {
-        padding: 50px 20px;
+        padding: 70px 8%;
       }
 
       section h2 {
-        font-size: 28px;
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 36px;
+        color: #102a43;
+        position: relative;
+      }
+
+      section h2::after {
+        content: "";
+        display: block;
+        width: 55px;
+        height: 4px;
+        background: #d9775b;
+        border-radius: 10px;
+        margin: 10px auto 0;
+      }
+
+      .about {
+        text-align: center;
+      }
+
+      .about p {
+        max-width: 900px;
+        margin: auto;
+        font-size: 18px;
+      }
+
+      .cards,
+      .package-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+      }
+
+      .card,
+      .package {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(18, 59, 93, 0.12);
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 18px;
+      }
+
+      .card h3 {
+        color: #102a43;
+        margin-bottom: 8px;
+      }
+
+      .package {
+        text-align: center;
+        padding: 30px;
+      }
+
+      .package:hover {
+        transform: scale(1.03);
+      }
+
+      .package h1 {
+        color: #b95c4a;
+        margin: 15px 0;
+      }
+
+      .package button {
+        margin-top: 20px;
+        background: #102a43;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 30px;
+        cursor: pointer;
+      }
+
+      .package button:hover {
+        background: #1f6f8b;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .feature {
+        background: white;
+        padding: 25px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(18, 59, 93, 0.08);
+      }
+
+      .feature i {
+        font-size: 35px;
+        color: #d9775b;
+        margin-bottom: 12px;
       }
 
       .search-box {
-        flex-direction: column;
+        max-width: 700px;
+        margin: 0 auto 35px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .search-box input {
+        flex: 1;
+        padding: 14px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      .search-box button {
+        padding: 14px 22px;
+        border: none;
+        background: #102a43;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      form {
+        max-width: 650px;
+        margin: auto;
+      }
+
+      form input,
+      form textarea {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 18px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      form textarea {
+        resize: none;
+        height: 150px;
+      }
+
+      form button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        background: #102a43;
+        color: white;
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .message {
+        text-align: center;
+        margin-top: 15px;
+        color: #102a43;
+        font-weight: 500;
+      }
+
+      #topBtn {
+        display: none;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        border: none;
+        background: #d9775b;
+        color: white;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      footer {
+        background: #102a43;
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .social {
+        margin-top: 20px;
+      }
+
+      .social i {
+        font-size: 25px;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+
+      .social i:hover {
+        color: #d4af37;
+      }
+
+      .place-card {
+        cursor: pointer;
+      }
+
+      .place-card .view-more {
+        color: #d4af37;
+        font-weight: 600;
+        margin-top: 10px;
+        display: inline-block;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 24, 38, 0.88);
+        z-index: 2000;
+        padding: 30px 20px;
+        overflow-y: auto;
+      }
+
+      .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-box {
+        width: min(950px, 100%);
+        background: #fff;
+        border-radius: 18px;
+        padding: 25px;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .close-modal {
+        position: absolute;
+        right: 18px;
+        top: 12px;
+        border: none;
+        background: #102a43;
+        color: white;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 20px;
+        z-index: 2;
+      }
+
+      .modal-box h2 {
+        color: #102a43;
+        margin-bottom: 5px;
+      }
+
+      .modal-box > p {
+        margin-bottom: 20px;
+        color: #666;
       }
 
       .gallery {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
       }
 
       .gallery img {
-        height: 220px;
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: 0.3s;
       }
-    }
-  </style>
-</head>
 
-<body>
-
-  <header>
-    <div class="logo">
-      <i class="fa-solid fa-plane"></i>TravelGo
-    </div>
-
-    <div class="menu-btn" onclick="toggleMenu()">
-      <i class="fa-solid fa-bars"></i>
-    </div>
-
-    <nav id="navbar">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#kerala">Kerala</a></li>
-        <li><a href="#mangalore">Mangalore</a></li>
-        <li><a href="#packages">Packages</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Explore Kerala & Mangalore</h1>
-      <p>Discover beaches, hills, waterfalls, wildlife, food and unforgettable travel experiences.</p>
-      <a href="#packages" class="btn">View Packages</a>
-    </div>
-  </section>
-
-  <section class="about">
-    <h2>Why Visit?</h2>
-    <p>
-      Kerala is known for its backwaters, tea plantations and beaches.
-      Mangalore is famous for its beaches, temples, seafood and rich culture.
-      Explore both destinations and make your trip memorable.
-    </p>
-
-    <div class="features">
-      <div class="feature">
-        <i class="fa-solid fa-map-location-dot"></i>
-        <h3>Beautiful Places</h3>
-        <p>Find popular places to visit.</p>
-      </div>
-
-      <div class="feature">
-        <i class="fa-solid fa-hotel"></i>
-        <h3>Easy Packages</h3>
-        <p>Choose a package that suits you.</p>
-      </div>
-
-      <div class="feature">
-        <i class="fa-solid fa-camera"></i>
-        <h3>Great Experiences</h3>
-        <p>Create memorable travel moments.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="kerala">
-    <h2>Top Places in Kerala</h2>
-
-    <div class="search-box">
-      <input type="text" id="keralaSearch" placeholder="Search Kerala places...">
-      <button onclick="searchPlaces()">Search</button>
-    </div>
-
-    <div class="cards" id="keralaCards">
-      <div class="card place-card">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600" alt="Munnar">
-        <div class="card-content">
-          <h3>Munnar</h3>
-          <p>Famous for tea plantations, mountains and cool climate.</p><span class="view-more">View more photos →</span>
-        </div>
-      </div>
-
-      <div class="card place-card">
-        <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=600" alt="Alleppey">
-        <div class="card-content">
-          <h3>Alleppey</h3>
-          <p>Enjoy peaceful houseboat rides through Kerala backwaters.</p><span class="view-more">View more photos →</span>
-        </div>
-      </div>
-
-      <div class="card place-card">
-        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600" alt="Wayanad">
-        <div class="card-content">
-          <h3>Wayanad</h3>
-          <p>Explore waterfalls, wildlife, caves and trekking.</p><span class="view-more">View more photos →</span>
-        </div>
-      </div>
-    <div class="no-result" id="noResult">No place found. Try another search.</div>
-    </div>
-  </section>
-
-  <section id="mangalore">
-    <h2>Top Places in Mangalore</h2>
-
-    <div class="cards">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600" alt="Panambur Beach">
-        <div class="card-content">
-          <h3>Panambur Beach</h3>
-          <p>Enjoy the beach, sunset and water activities.</p><span class="view-more">View more photos →</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600" alt="Tannirbhavi Beach">
-        <div class="card-content">
-          <h3>Tannirbhavi Beach</h3>
-          <p>A peaceful beach surrounded by nature.</p><span class="view-more">View more photos →</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600" alt="St Aloysius Chapel">
-        <div class="card-content">
-          <h3>St. Aloysius Chapel</h3>
-          <p>A historic place with beautiful paintings.</p><span class="view-more">View more photos →</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="packages">
-    <h2>Popular Packages</h2>
-
-    <div class="package-container">
-      <div class="package">
-        <h3>Kerala Tour</h3>
-        <h1>₹7,999</h1>
-        <p>3 Days / 2 Nights</p>
-        <button onclick="bookPackage('Kerala Tour')">Book Now</button>
-      </div>
-
-      <div class="package">
-        <h3>Mangalore Tour</h3>
-        <h1>₹5,999</h1>
-        <p>2 Days / 1 Night</p>
-        <button onclick="bookPackage('Mangalore Tour')">Book Now</button>
-      </div>
-
-      <div class="package">
-        <h3>Combo Tour</h3>
-        <h1>₹11,999</h1>
-        <p>5 Days / 4 Nights</p>
-        <button onclick="bookPackage('Combo Tour')">Book Now</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-
-    <form id="contactForm">
-      <input type="text" id="name" placeholder="Your Name">
-      <input type="email" id="email" placeholder="Your Email">
-      <input type="tel" id="phone" placeholder="Phone Number">
-      <textarea id="message" placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
-      <p class="message" id="formMessage"></p>
-    </form>
-  </section>
-
-
-  <div class="modal" id="placeModal">
-    <div class="modal-box">
-      <button class="close-modal" onclick="closePlace()">&times;</button>
-      <h2 id="modalTitle">Place</h2>
-      <p id="modalDescription">Explore this beautiful destination.</p>
-      <div class="gallery" id="gallery"></div>
-    </div>
-  </div>
-
-  <footer>
-    <h3>Explore Kerala & Mangalore</h3>
-    <p>Designed using HTML, CSS & JavaScript</p>
-
-    <div class="social">
-      <i class="fa-brands fa-facebook"></i>
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-brands fa-youtube"></i>
-    </div>
-  </footer>
-
-  <button id="topBtn" onclick="goTop()">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
-
-  <script>
-    // Mobile menu
-    function toggleMenu() {
-      document.getElementById("navbar").classList.toggle("active");
-    }
-
-    // Extra photos for each place
-    const placeData = {
-      "Munnar": {
-        description: "Tea plantations, mountains, viewpoints and cool weather.",
-        images: [
-          "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900",
-          "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900",
-          "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900",
-          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900",
-          "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900",
-          "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?w=900"
-        ]
-      },
-      "Alleppey": {
-        description: "Relaxing backwaters, houseboats and beautiful village views.",
-        images: [
-          "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=900",
-          "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=900",
-          "https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?w=900",
-          "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=900",
-          "https://images.unsplash.com/photo-1548013146-72479768bada?w=900",
-          "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900"
-        ]
-      },
-      "Wayanad": {
-        description: "Green hills, waterfalls, forests, caves and trekking spots.",
-        images: [
-          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900",
-          "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900",
-          "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900",
-          "https://images.unsplash.com/photo-1511497584788-876760111969?w=900",
-          "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?w=900",
-          "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900"
-        ]
-      },
-      "Panambur Beach": {
-        description: "A popular beach known for sunsets, sea views and activities.",
-        images: [
-          "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900",
-          "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=900",
-          "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=900",
-          "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900",
-          "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900",
-          "https://images.unsplash.com/photo-1476673160081-cf065607f449?w=900"
-        ]
-      },
-      "Tannirbhavi Beach": {
-        description: "A peaceful coastal spot with greenery and beautiful sea views.",
-        images: [
-          "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=900",
-          "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=900",
-          "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900",
-          "https://images.unsplash.com/photo-1476673160081-cf065607f449?w=900",
-          "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900",
-          "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900"
-        ]
-      },
-      "St. Aloysius Chapel": {
-        description: "A historic Mangalore landmark known for its beautiful interior paintings.",
-        images: [
-          "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=900",
-          "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=900",
-          "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=900",
-          "https://images.unsplash.com/photo-1548013146-72479768bada?w=900",
-          "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900",
-          "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?w=900"
-        ]
+      .gallery img:hover {
+        transform: scale(1.03);
       }
-    };
 
-    // Open a place gallery
-    function openPlace(name) {
-      let data = placeData[name];
-      if (!data) return;
+      .no-result {
+        display: none;
+        text-align: center;
+        padding: 25px;
+        color: #777;
+        grid-column: 1 / -1;
+      }
 
-      document.getElementById("modalTitle").textContent = name;
-      document.getElementById("modalDescription").textContent = data.description;
+      @media (max-width: 768px) {
+        header {
+          padding: 15px 5%;
+        }
 
-      let gallery = document.getElementById("gallery");
-      gallery.innerHTML = "";
+        .menu-btn {
+          display: block;
+        }
 
-      data.images.forEach(function(image) {
-        let img = document.createElement("img");
-        img.src = image;
-        img.alt = name;
-        gallery.appendChild(img);
-      });
+        nav {
+          display: none;
+          width: 100%;
+        }
 
-      document.getElementById("placeModal").classList.add("active");
-    }
+        nav.active {
+          display: block;
+        }
 
-    function closePlace() {
-      document.getElementById("placeModal").classList.remove("active");
-    }
+        nav ul {
+          flex-direction: column;
+          gap: 12px;
+          margin-top: 15px;
+        }
 
-    // Make every place card clickable
-    document.querySelectorAll(".card").forEach(function(card) {
-      let title = card.querySelector("h3");
+        header {
+          flex-wrap: wrap;
+        }
 
-      if (title && placeData[title.textContent.trim()]) {
-        card.addEventListener("click", function() {
-          openPlace(title.textContent.trim());
+        .hero h1 {
+          font-size: 36px;
+        }
+
+        .hero p {
+          font-size: 17px;
+        }
+
+        section {
+          padding: 50px 20px;
+        }
+
+        section h2 {
+          font-size: 28px;
+        }
+
+        .search-box {
+          flex-direction: column;
+        }
+
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery img {
+          height: 220px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo"><i class="fa-solid fa-plane"></i>TravelGo</div>
+
+      <div class="menu-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <nav id="navbar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#kerala">Kerala</a></li>
+          <li><a href="#mangalore">Mangalore</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Explore Kerala & Mangalore</h1>
+        <p>
+          Discover beaches, hills, waterfalls, wildlife, food and unforgettable
+          travel experiences.
+        </p>
+        <a href="#packages" class="btn">View Packages</a>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>Why Visit?</h2>
+      <p>
+        Kerala is known for its backwaters, tea plantations and beaches.
+        Mangalore is famous for its beaches, temples, seafood and rich culture.
+        Explore both destinations and make your trip memorable.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <h3>Beautiful Places</h3>
+          <p>Find popular places to visit.</p>
+        </div>
+
+        <div class="feature">
+          <i class="fa-solid fa-hotel"></i>
+          <h3>Easy Packages</h3>
+          <p>Choose a package that suits you.</p>
+        </div>
+
+        <div class="feature">
+          <i class="fa-solid fa-camera"></i>
+          <h3>Great Experiences</h3>
+          <p>Create memorable travel moments.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kerala">
+      <h2>Top Places in Kerala</h2>
+
+      <div class="search-box">
+        <input
+          type="text"
+          id="keralaSearch"
+          placeholder="Search Kerala places..."
+        />
+        <button onclick="searchPlaces()">Search</button>
+      </div>
+
+      <div class="cards" id="keralaCards">
+        <div class="card place-card">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600"
+            alt="Munnar"
+          />
+          <div class="card-content">
+            <h3>Munnar</h3>
+            <p>Famous for tea plantations, mountains and cool climate.</p>
+            <span class="view-more">View more photos →</span>
+          </div>
+        </div>
+
+        <div class="card place-card">
+          <img
+            src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=600"
+            alt="Alleppey"
+          />
+          <div class="card-content">
+            <h3>Alleppey</h3>
+            <p>Enjoy peaceful houseboat rides through Kerala backwaters.</p>
+            <span class="view-more">View more photos →</span>
+          </div>
+        </div>
+
+        <div class="card place-card">
+          <img
+            src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600"
+            alt="Wayanad"
+          />
+          <div class="card-content">
+            <h3>Wayanad</h3>
+            <p>Explore waterfalls, wildlife, caves and trekking.</p>
+            <span class="view-more">View more photos →</span>
+          </div>
+        </div>
+        <div class="no-result" id="noResult">
+          No place found. Try another search.
+        </div>
+      </div>
+    </section>
+
+    <section id="mangalore">
+      <h2>Top Places in Mangalore</h2>
+
+      <div class="cards">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600"
+            alt="Panambur Beach"
+          />
+          <div class="card-content">
+            <h3>Panambur Beach</h3>
+            <p>Enjoy the beach, sunset and water activities.</p>
+            <span class="view-more">View more photos →</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600"
+            alt="Tannirbhavi Beach"
+          />
+          <div class="card-content">
+            <h3>Tannirbhavi Beach</h3>
+            <p>A peaceful beach surrounded by nature.</p>
+            <span class="view-more">View more photos →</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600"
+            alt="St Aloysius Chapel"
+          />
+          <div class="card-content">
+            <h3>St. Aloysius Chapel</h3>
+            <p>A historic place with beautiful paintings.</p>
+            <span class="view-more">View more photos →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages">
+      <h2>Popular Packages</h2>
+
+      <div class="package-container">
+        <div class="package">
+          <h3>Kerala Tour</h3>
+          <h1>₹7,999</h1>
+          <p>3 Days / 2 Nights</p>
+          <button onclick="bookPackage('Kerala Tour')">Book Now</button>
+        </div>
+
+        <div class="package">
+          <h3>Mangalore Tour</h3>
+          <h1>₹5,999</h1>
+          <p>2 Days / 1 Night</p>
+          <button onclick="bookPackage('Mangalore Tour')">Book Now</button>
+        </div>
+
+        <div class="package">
+          <h3>Combo Tour</h3>
+          <h1>₹11,999</h1>
+          <p>5 Days / 4 Nights</p>
+          <button onclick="bookPackage('Combo Tour')">Book Now</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" />
+        <input type="email" id="email" placeholder="Your Email" />
+        <input type="tel" id="phone" placeholder="Phone Number" />
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+        <p class="message" id="formMessage"></p>
+      </form>
+    </section>
+
+    <div class="modal" id="placeModal">
+      <div class="modal-box">
+        <button class="close-modal" onclick="closePlace()">&times;</button>
+        <h2 id="modalTitle">Place</h2>
+        <p id="modalDescription">Explore this beautiful destination.</p>
+        <div class="gallery" id="gallery"></div>
+      </div>
+    </div>
+
+    <footer>
+      <h3>Explore Kerala & Mangalore</h3>
+
+      <div class="social">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+    </footer>
+
+    <button id="topBtn" onclick="goTop()">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+      // Mobile menu
+      function toggleMenu() {
+        document.getElementById("navbar").classList.toggle("active");
+      }
+
+      // Extra photos for each place
+      const placeData = {
+        Munnar: {
+          description:
+            "Tea plantations, mountains, viewpoints and cool weather.",
+          images: [
+            "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900",
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900",
+            "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900",
+            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900",
+            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900",
+            "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?w=900",
+          ],
+        },
+        Alleppey: {
+          description:
+            "Relaxing backwaters, houseboats and beautiful village views.",
+          images: [
+            "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=900",
+            "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=900",
+            "https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?w=900",
+            "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=900",
+            "https://images.unsplash.com/photo-1548013146-72479768bada?w=900",
+            "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900",
+          ],
+        },
+        Wayanad: {
+          description:
+            "Green hills, waterfalls, forests, caves and trekking spots.",
+          images: [
+            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900",
+            "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900",
+            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900",
+            "https://images.unsplash.com/photo-1511497584788-876760111969?w=900",
+            "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?w=900",
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900",
+          ],
+        },
+        "Panambur Beach": {
+          description:
+            "A popular beach known for sunsets, sea views and activities.",
+          images: [
+            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900",
+            "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=900",
+            "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=900",
+            "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900",
+            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900",
+            "https://images.unsplash.com/photo-1476673160081-cf065607f449?w=900",
+          ],
+        },
+        "Tannirbhavi Beach": {
+          description:
+            "A peaceful coastal spot with greenery and beautiful sea views.",
+          images: [
+            "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=900",
+            "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=900",
+            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900",
+            "https://images.unsplash.com/photo-1476673160081-cf065607f449?w=900",
+            "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900",
+            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900",
+          ],
+        },
+        "St. Aloysius Chapel": {
+          description:
+            "A historic Mangalore landmark known for its beautiful interior paintings.",
+          images: [
+            "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=900",
+            "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=900",
+            "https://images.unsplash.com/photo-1476673160081-cf065607f449?w=900",
+          ],
+        },
+      };
+
+      // Open a place gallery
+      function openPlace(name) {
+        let data = placeData[name];
+        if (!data) return;
+
+        document.getElementById("modalTitle").textContent = name;
+        document.getElementById("modalDescription").textContent =
+          data.description;
+
+        let gallery = document.getElementById("gallery");
+        gallery.innerHTML = "";
+
+        data.images.forEach(function (image) {
+          let img = document.createElement("img");
+          img.src = image;
+          img.alt = name;
+          gallery.appendChild(img);
         });
+
+        document.getElementById("placeModal").classList.add("active");
       }
-    });
 
-    // Search Kerala places
-    function searchPlaces() {
-      let search = document.getElementById("keralaSearch").value.toLowerCase().trim();
-      let cards = document.querySelectorAll("#keralaCards .place-card");
-      let found = 0;
+      function closePlace() {
+        document.getElementById("placeModal").classList.remove("active");
+      }
 
-      cards.forEach(function(card) {
-        let placeName = card.querySelector("h3").textContent.toLowerCase();
+      // Make every place card clickable
+      document.querySelectorAll(".card").forEach(function (card) {
+        let title = card.querySelector("h3");
 
-        if (placeName.includes(search)) {
-          card.style.display = "block";
-          found++;
-        } else {
-          card.style.display = "none";
+        if (title && placeData[title.textContent.trim()]) {
+          card.addEventListener("click", function () {
+            openPlace(title.textContent.trim());
+          });
         }
       });
 
-      document.getElementById("noResult").style.display = found === 0 ? "block" : "none";
-    }
+      // Search Kerala places
+      function searchPlaces() {
+        let search = document
+          .getElementById("keralaSearch")
+          .value.toLowerCase()
+          .trim();
+        let cards = document.querySelectorAll("#keralaCards .place-card");
+        let found = 0;
 
-    document.getElementById("keralaSearch").addEventListener("input", searchPlaces);
+        cards.forEach(function (card) {
+          let placeName = card.querySelector("h3").textContent.toLowerCase();
 
-    // Close gallery by clicking outside
-    document.getElementById("placeModal").addEventListener("click", function(event) {
-      if (event.target === this) {
-        closePlace();
-      }
-    });
+          if (placeName.includes(search)) {
+            card.style.display = "block";
+            found++;
+          } else {
+            card.style.display = "none";
+          }
+        });
 
-    document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") {
-        closePlace();
-      }
-    });
-
-    // Book package
-    function bookPackage(packageName) {
-      let answer = confirm("Do you want to book the " + packageName + "?");
-
-      if (answer) {
-        alert("Thank you! Your booking request for " + packageName + " has been received.");
-      }
-    }
-
-    // Contact form validation
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      let name = document.getElementById("name").value.trim();
-      let email = document.getElementById("email").value.trim();
-      let phone = document.getElementById("phone").value.trim();
-      let message = document.getElementById("message").value.trim();
-      let formMessage = document.getElementById("formMessage");
-
-      if (name === "" || email === "" || phone === "" || message === "") {
-        formMessage.textContent = "Please fill all the fields.";
-        return;
+        document.getElementById("noResult").style.display =
+          found === 0 ? "block" : "none";
       }
 
-      if (phone.length < 10) {
-        formMessage.textContent = "Please enter a valid phone number.";
-        return;
-      }
+      document
+        .getElementById("keralaSearch")
+        .addEventListener("input", searchPlaces);
 
-      formMessage.textContent = "Thank you " + name + "! Your message has been sent.";
-      document.getElementById("contactForm").reset();
-    });
+      // Close gallery by clicking outside
+      document
+        .getElementById("placeModal")
+        .addEventListener("click", function (event) {
+          if (event.target === this) {
+            closePlace();
+          }
+        });
 
-    // Show top button when scrolling
-    window.addEventListener("scroll", function() {
-      let topBtn = document.getElementById("topBtn");
-
-      if (window.scrollY > 300) {
-        topBtn.style.display = "block";
-      } else {
-        topBtn.style.display = "none";
-      }
-    });
-
-    function goTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closePlace();
+        }
       });
-    }
-  </script>
 
-</body>
+      // Book package
+      function bookPackage(packageName) {
+        let answer = confirm("Do you want to book the " + packageName + "?");
+
+        if (answer) {
+          alert(
+            "Thank you! Your booking request for " +
+              packageName +
+              " has been received.",
+          );
+        }
+      }
+
+      // Contact form validation
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let name = document.getElementById("name").value.trim();
+          let email = document.getElementById("email").value.trim();
+          let phone = document.getElementById("phone").value.trim();
+          let message = document.getElementById("message").value.trim();
+          let formMessage = document.getElementById("formMessage");
+
+          if (name === "" || email === "" || phone === "" || message === "") {
+            formMessage.textContent = "Please fill all the fields.";
+            return;
+          }
+
+          if (phone.length < 10) {
+            formMessage.textContent = "Please enter a valid phone number.";
+            return;
+          }
+
+          formMessage.textContent =
+            "Thank you " + name + "! Your message has been sent.";
+          document.getElementById("contactForm").reset();
+        });
+
+      // Show top button when scrolling
+      window.addEventListener("scroll", function () {
+        let topBtn = document.getElementById("topBtn");
+
+        if (window.scrollY > 300) {
+          topBtn.style.display = "block";
+        } else {
+          topBtn.style.display = "none";
+        }
+      });
+
+      function goTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+    </script>
+  </body>
 </html>
